@@ -38,12 +38,14 @@
 .title a {
   color: #0070f3;
   text-decoration: none;
+  transition: 0.2s ease-in-out;
 }
 
 .title a:hover,
 .title a:focus,
 .title a:active {
   text-decoration: underline;
+  transform: scale(1.25);
 }
 
 .title {
@@ -90,6 +92,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
 }
 
 .card:hover,

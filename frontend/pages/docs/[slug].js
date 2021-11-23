@@ -42,8 +42,7 @@ const PostPage = ({ frontMatter, mdxSource }) => {
       <h2>Slug: {frontMatter.slug}</h2>
       <h3>Type: {frontMatter.type}</h3>
         <FileTemplate info={frontMatter} content={mdxSource}>
-          Aqui ficam as kids
-          vou tentar colocar aqui assim:
+          
         </FileTemplate>
       </>
     )

@@ -38,12 +38,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
 const PostPage = ({ frontMatter, mdxSource }) => {
     return (
       <>
-      <h1>Title: {frontMatter.title}</h1>
+      {/* <h1>Title: {frontMatter.title}</h1>
       <h2>Slug: {frontMatter.slug}</h2>
-      <h3>Type: {frontMatter.type}</h3>
-        <FileTemplate info={frontMatter} content={mdxSource}>
-          
-        </FileTemplate>
+      <h3>Type: {frontMatter.type}</h3> */}
+        <FileTemplate info={frontMatter} content={mdxSource}/>
       </>
     )
   }

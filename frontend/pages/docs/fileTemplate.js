@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head'
 import {MDXRemote} from "next-mdx-remote";
-import styles from '../../styles/Home.module.css'
+import styles from './templateStyle.module.css'
 
 function Trilha({info, content,children}) {
     return (
@@ -14,14 +14,16 @@ function Trilha({info, content,children}) {
 
                 <main className={styles.main}>
                     <h1 className={styles.title}>
-                        Welcome to <a href="#">{info.title}</a>
+                       {info.title}
                     </h1>    
                     <p className={styles.description}>
-                        These are the listed DORC files at{' '}
-                        <code className={styles.code}>arqs/docs</code>
+                        {info.description}
+                        {/* <code className={styles.code}></code> */}
                     </p>
                 </main>
-                <MDXRemote {...content}/>
+                <section className={styles.section}>
+                    <MDXRemote {...content} components={styles}/>
+                </section >
                 <footer className={styles.footer}>
                     {children}
                     {/* <a

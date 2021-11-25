@@ -1,0 +1,46 @@
+---
+title: "Saiba por onde começar a criar um DORC"
+slug: "criandoDorc"
+type: "dorc"
+description: "Passo a Passo de como criar o DORC para uma área, se você é de TI"
+---
+
+# Criando Dorc
+Criando blablabla
+
+
+
+## Cadastro de Credenciais
+Para que o DORC consiga utilizar outros sistemas como o publicador; sistemas de relatórios; SQL Server; Vertica; entre outros, é necessário gerar credenciais de acesso. Este documento mostra o procedimento de criação de credenciais e cadastro das mesmas para disponibiliza-las para o DORC solicitante.
+
+
+### 1. Vertica
+Caso o solicitante diga que irá acessar o Vertica, é necessário verificar se o acesso será leitura, escrita ou ambos e em quais Schemas. Isso se dá pelo fato de que, do jeito que está estruturado atualmente, é necessário criar um usuário com permissão de leitura e outro com permissão de escrita. Após confirmada as permissões com o solicitante, utilizar o DBeaver para acessar o Vertica de produção. Caso não possua a credencial de acesso, entrar em contato com infra-plataforma.
+Uma vez conectado ao Vertica, verificar as roles existentes com o comando: 
+```
+SELECT * FROM roles;
+```
+Caso não exista uma role para o schema desejado, ver a documentação. Após definir a role que será utilizada, criar o usuário com uma senha forte e realizar o grant da role para o usuário como o exemplo:
+
+```
+CREATE USER dorc_area_reader_vert IDENTIFIED BY 'senhaforte';
+```
+
+```
+GRANT ROLE bbmanalyticsDataReader to dorc_area_reader_vert;
+```
+Com o usuário criado, inserir as credenciais no KeyVault DORC-API-prd-bocombbm através do job no Rundeck como o exemplo:
+
+- Keyname: dorcarea-reader-vert-user
+    - Secret: dorc_area-reader-vert
+
+- Keyname: dorcarea-reader-vert-pass
+    - Secret: 'alguma senha forte'
+
+### 2. Solicitando Mapeamento dos Perfis
+
+### 3. Criar projeto no Azure DevOps
+
+### 4. Criar e Cadastras as Credenciais no SQL e Vertica
+
+### 5. Adicionar Roles no APIGW
